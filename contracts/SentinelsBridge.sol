@@ -1,14 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
-import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import './SEN.sol';
 import 'hardhat/console.sol';
 
-import './security/Verifier.sol';
-import './security/VerifySignature.sol';
-
 contract SentinelsBridge {
-    // using ECDSA for bytes32;
     SEN private sentinels;
     constructor(address addr) {
         sentinels = SEN(addr);
@@ -24,20 +19,10 @@ contract SentinelsBridge {
     event Depositor(address deposit, uint256 tokenID, string tokenURL);
     event Withdrawer(address withdrawer, uint256 tokenID);
 
-    function verify(
-        string calldata message,
-        uint8 _v,
-        bytes32 _r,
-        bytes32 _s
-    ) public view returns (bool) {
-        return verifyString(message, _v, _r, _s);
+    function verify(string calldata message, bytes memory sig) public view returns (bool) {
+        (bytes32 r, bytes32 s, uint8 v) = splitSignature(sig);
+        return verifyString(message, v, r, s);
     }
-
-    // function verifySignature(bytes32 _message, bytes memory signature) public view returns (bool) {
-    //     console.log("msg.sender verifySignature: ", msg.sender);
-    //     console.log("recover verifySignature: ", _message.recover(signature));
-    //     return _message.recover(signature) == msg.sender;
-    // }
 
     function deposit(uint256 tokenId) public {
         require(sentinels.ownerOf(tokenId) == msg.sender, "only owner of token can deposit");
@@ -69,6 +54,30 @@ contract SentinelsBridge {
 
     function unlock(address _to, uint256 tokenId) private {
         sentinels.transferItemTo(address(this), _to, tokenId);
+    }
+
+    function splitSignature(bytes memory sig) private pure returns (bytes32 r, bytes32 s, uint8 v) {
+        require(sig.length == 65, "invalid signature length");
+
+        assembly {
+            /*
+            First 32 bytes stores the length of the signature
+
+            add(sig, 32) = pointer of sig + 32
+            effectively, skips first 32 bytes of signature
+
+            mload(p) loads next 32 bytes starting at the memory address p into memory
+            */
+
+            // first 32 bytes, after the length prefix
+            r := mload(add(sig, 32))
+            // second 32 bytes
+            s := mload(add(sig, 64))
+            // final byte (first byte of the next 32 bytes)
+            v := byte(0, mload(add(sig, 96)))
+        }
+
+        // implicitly return (r, s, v)
     }
 
     function verifyString(string memory message, uint8 v, bytes32 r, bytes32 s) 

@@ -42,9 +42,8 @@ describe("setinels nfts signature", ()=>{
         it("should mint a new signature", async ()=> {
             const {sender, receiver, sen, senbridge, leo, leobridge, wallet, r, s, v} = await loadFixture(deployToken);
             const signature = await sender.signMessage("www.example.com")
-            const sig = ethers.utils.splitSignature(signature)
-            const verify = await senbridge.connect(receiver).verify("www.example.com", sig.v, sig.r, sig.s)
-            console.log("call verify func", verify)
+            const verify = await senbridge.connect(sender).verify("www.example.com", signature)
+            expect(verify).to.be.true
 
         })
     })
