@@ -43,7 +43,9 @@ describe("setinels nfts signature", ()=>{
             const {sender, receiver, sen, senbridge, leo, leobridge, wallet, r, s, v} = await loadFixture(deployToken);
             const signature = await sender.signMessage("www.example.com")
             const verify = await senbridge.connect(sender).verify("www.example.com", signature)
+            const address = await senbridge.recover("www.example.com", signature)
             expect(verify).to.be.true
+            expect(address).to.equal(sender.address)
 
         })
     })

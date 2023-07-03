@@ -2,16 +2,16 @@ package engine
 
 import (
 	"example.com/m/app/pkg/core"
-	model2 "example.com/m/app/pkg/model"
+	model "example.com/m/app/pkg/model"
 	"log"
 )
 
 func ListenT55Bridge() {
 	ct55 := core.NewCoreT55()
 	ct54 := core.NewCoreT54()
-	logs := make(chan *model2.T55BridgeDepositor)
-	t55br, _ := model2.NewT55Bridge(ct55.BridgeAddr, ct55.Cli)
-	t54br, err := model2.NewT55Bridge(ct54.BridgeAddr, ct54.Cli)
+	logs := make(chan *model.T55BridgeDepositor)
+	t55br, _ := model.NewT55Bridge(ct55.BridgeAddr, ct55.Cli)
+	t54br, err := model.NewT55Bridge(ct54.BridgeAddr, ct54.Cli)
 	// t54nfts, _ := model.NewT54NFTs(ct54.NFTs, ct54.Cli)
 	if err != nil {
 		log.Fatal("Error from Listen BridgeSepo", err)
@@ -44,9 +44,9 @@ func ListenT55Bridge() {
 func ListenT54Bridge() {
 	ct55 := core.NewCoreT55()
 	ct54 := core.NewCoreT54()
-	logs := make(chan *model2.T54BridgeDepositor)
-	t54br, err := model2.NewT54Bridge(ct54.BridgeAddr, ct54.Cli)
-	t55br, _ := model2.NewT54Bridge(ct55.BridgeAddr, ct55.Cli)
+	logs := make(chan *model.T54BridgeDepositor)
+	t54br, err := model.NewT54Bridge(ct54.BridgeAddr, ct54.Cli)
+	t55br, _ := model.NewT54Bridge(ct55.BridgeAddr, ct55.Cli)
 	// t55nfts, _ := model.NewT55NFTs(ct55.NFTs, ct55.Cli)
 	if err != nil {
 		log.Fatal("Error from Listen BridgeSepo", err)
@@ -81,12 +81,12 @@ func ListenT55MintNFTs() {
 	ct55 := core.NewCoreT55()
 	ct54 := core.NewCoreT54()
 
-	logs := make(chan *model2.T55NFTsMintNFTs)
-	t55instance, err := model2.NewT55NFTs(ct55.NFTs, ct55.Cli)
+	logs := make(chan *model.T55NFTsMintNFTs)
+	t55instance, err := model.NewT55NFTs(ct55.NFTs, ct55.Cli)
 	if err != nil {
 		log.Fatal(err)
 	}
-	t54instance, err := model2.NewT54NFTs(ct54.NFTs, ct54.Cli)
+	t54instance, err := model.NewT54NFTs(ct54.NFTs, ct54.Cli)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -114,12 +114,12 @@ func ListenT54MintNFTs() {
 	ct55 := core.NewCoreT55()
 	ct54 := core.NewCoreT54()
 
-	logs := make(chan *model2.T54NFTsMintNFTs)
-	t55instance, err := model2.NewT55NFTs(ct55.NFTs, ct55.Cli)
+	logs := make(chan *model.T54NFTsMintNFTs)
+	t55instance, err := model.NewT55NFTs(ct55.NFTs, ct55.Cli)
 	if err != nil {
 		log.Fatal(err)
 	}
-	t54instance, err := model2.NewT54NFTs(ct54.NFTs, ct54.Cli)
+	t54instance, err := model.NewT54NFTs(ct54.NFTs, ct54.Cli)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -147,12 +147,12 @@ func ListenClaimT55NFTs() {
 	ct55 := core.NewCoreT55()
 	// ct54 := core.NewCoreT54()
 
-	logs := make(chan *model2.T55BridgeClaimNFTs)
-	t55instance, err := model2.NewT55Bridge(ct55.BridgeAddr, ct55.Cli)
+	logs := make(chan *model.T55BridgeClaimNFTs)
+	t55instance, err := model.NewT55Bridge(ct55.BridgeAddr, ct55.Cli)
 	if err != nil {
 		log.Fatal(err)
 	}
-	t55nfts, err := model2.NewT55NFTs(ct55.NFTs, ct55.Cli)
+	t55nfts, err := model.NewT55NFTs(ct55.NFTs, ct55.Cli)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -180,12 +180,12 @@ func ListenClaimT54NFTs() {
 	ct54 := core.NewCoreT54()
 	// ct54 := core.NewCoreT54()
 
-	logs := make(chan *model2.T54BridgeClaimNFTs)
-	t54instance, err := model2.NewT54Bridge(ct54.BridgeAddr, ct54.Cli)
+	logs := make(chan *model.T54BridgeClaimNFTs)
+	t54instance, err := model.NewT54Bridge(ct54.BridgeAddr, ct54.Cli)
 	if err != nil {
 		log.Fatal(err)
 	}
-	t54nfts, err := model2.NewT54NFTs(ct54.NFTs, ct54.Cli)
+	t54nfts, err := model.NewT54NFTs(ct54.NFTs, ct54.Cli)
 	if err != nil {
 		log.Fatal(err)
 	}

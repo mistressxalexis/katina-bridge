@@ -21,7 +21,18 @@ contract SentinelsBridge {
 
     function verify(string calldata message, bytes memory sig) public view returns (bool) {
         (bytes32 r, bytes32 s, uint8 v) = splitSignature(sig);
-        return verifyString(message, v, r, s);
+        address addr = verifyString(message, v, r, s);
+        return addr == msg.sender;
+    }
+    
+    function recover(string calldata message, bytes memory sig) public pure returns (address) {
+        (bytes32 r, bytes32 s, uint8 v) = splitSignature(sig);
+        address addr = verifyString(message, v, r, s);
+        return addr;
+    }
+
+    function getSender() public view returns (address) {
+        return msg.sender;
     }
 
     function deposit(uint256 tokenId) public {
@@ -80,8 +91,10 @@ contract SentinelsBridge {
         // implicitly return (r, s, v)
     }
 
-    function verifyString(string memory message, uint8 v, bytes32 r, bytes32 s) 
-        private view returns (bool) {
+    function verifyString(
+        string memory message, 
+        uint8 v, bytes32 r, bytes32 s) 
+    private pure returns (address) {
 
         // The message header; we will fill in the length next
         string memory header = "\x19Ethereum Signed Message:\n000000";
@@ -151,6 +164,6 @@ contract SentinelsBridge {
         // Perform the elliptic curve recover operation
         bytes32 check = keccak256(abi.encodePacked(header, message));
 
-        return ecrecover(check, v, r, s) == msg.sender;
+        return ecrecover(check, v, r, s);
     }
 }

@@ -31,7 +31,7 @@ var (
 
 // SentinelsBridgeMetaData contains all meta data concerning the SentinelsBridge contract.
 var SentinelsBridgeMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"deposit\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"tokenURL\",\"type\":\"string\"}],\"name\":\"Depositor\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"withdrawer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"}],\"name\":\"Withdrawer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"url\",\"type\":\"string\"}],\"name\":\"awaitSyncData\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"awaitWithdrawEvent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_messageHash\",\"type\":\"bytes32\"}],\"name\":\"getEthSignedMessageHash\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_message\",\"type\":\"string\"}],\"name\":\"getMessageHash\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_ethSignedMessageHash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"_signature\",\"type\":\"bytes\"}],\"name\":\"recoverSigner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"sig\",\"type\":\"bytes\"}],\"name\":\"splitSignature\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_signer\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_message\",\"type\":\"string\"},{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"verify\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"}],\"name\":\"verifySignature\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"deposit\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"tokenURL\",\"type\":\"string\"}],\"name\":\"Depositor\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"withdrawer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"}],\"name\":\"Withdrawer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getSender\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"bytes\",\"name\":\"sig\",\"type\":\"bytes\"}],\"name\":\"recover\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"bytes\",\"name\":\"sig\",\"type\":\"bytes\"}],\"name\":\"verify\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"messageHash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"verifySignature\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"url\",\"type\":\"string\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // SentinelsBridgeABI is the input ABI used to generate the binding from.
@@ -180,74 +180,12 @@ func (_SentinelsBridge *SentinelsBridgeTransactorRaw) Transact(opts *bind.Transa
 	return _SentinelsBridge.Contract.contract.Transact(opts, method, params...)
 }
 
-// GetEthSignedMessageHash is a free data retrieval call binding the contract method 0xfa540801.
+// GetSender is a free data retrieval call binding the contract method 0x5e01eb5a.
 //
-// Solidity: function getEthSignedMessageHash(bytes32 _messageHash) pure returns(bytes32)
-func (_SentinelsBridge *SentinelsBridgeCaller) GetEthSignedMessageHash(opts *bind.CallOpts, _messageHash [32]byte) ([32]byte, error) {
+// Solidity: function getSender() view returns(address)
+func (_SentinelsBridge *SentinelsBridgeCaller) GetSender(opts *bind.CallOpts) (common.Address, error) {
 	var out []interface{}
-	err := _SentinelsBridge.contract.Call(opts, &out, "getEthSignedMessageHash", _messageHash)
-
-	if err != nil {
-		return *new([32]byte), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
-
-	return out0, err
-
-}
-
-// GetEthSignedMessageHash is a free data retrieval call binding the contract method 0xfa540801.
-//
-// Solidity: function getEthSignedMessageHash(bytes32 _messageHash) pure returns(bytes32)
-func (_SentinelsBridge *SentinelsBridgeSession) GetEthSignedMessageHash(_messageHash [32]byte) ([32]byte, error) {
-	return _SentinelsBridge.Contract.GetEthSignedMessageHash(&_SentinelsBridge.CallOpts, _messageHash)
-}
-
-// GetEthSignedMessageHash is a free data retrieval call binding the contract method 0xfa540801.
-//
-// Solidity: function getEthSignedMessageHash(bytes32 _messageHash) pure returns(bytes32)
-func (_SentinelsBridge *SentinelsBridgeCallerSession) GetEthSignedMessageHash(_messageHash [32]byte) ([32]byte, error) {
-	return _SentinelsBridge.Contract.GetEthSignedMessageHash(&_SentinelsBridge.CallOpts, _messageHash)
-}
-
-// GetMessageHash is a free data retrieval call binding the contract method 0xb446f3b2.
-//
-// Solidity: function getMessageHash(string _message) pure returns(bytes32)
-func (_SentinelsBridge *SentinelsBridgeCaller) GetMessageHash(opts *bind.CallOpts, _message string) ([32]byte, error) {
-	var out []interface{}
-	err := _SentinelsBridge.contract.Call(opts, &out, "getMessageHash", _message)
-
-	if err != nil {
-		return *new([32]byte), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
-
-	return out0, err
-
-}
-
-// GetMessageHash is a free data retrieval call binding the contract method 0xb446f3b2.
-//
-// Solidity: function getMessageHash(string _message) pure returns(bytes32)
-func (_SentinelsBridge *SentinelsBridgeSession) GetMessageHash(_message string) ([32]byte, error) {
-	return _SentinelsBridge.Contract.GetMessageHash(&_SentinelsBridge.CallOpts, _message)
-}
-
-// GetMessageHash is a free data retrieval call binding the contract method 0xb446f3b2.
-//
-// Solidity: function getMessageHash(string _message) pure returns(bytes32)
-func (_SentinelsBridge *SentinelsBridgeCallerSession) GetMessageHash(_message string) ([32]byte, error) {
-	return _SentinelsBridge.Contract.GetMessageHash(&_SentinelsBridge.CallOpts, _message)
-}
-
-// RecoverSigner is a free data retrieval call binding the contract method 0x97aba7f9.
-//
-// Solidity: function recoverSigner(bytes32 _ethSignedMessageHash, bytes _signature) pure returns(address)
-func (_SentinelsBridge *SentinelsBridgeCaller) RecoverSigner(opts *bind.CallOpts, _ethSignedMessageHash [32]byte, _signature []byte) (common.Address, error) {
-	var out []interface{}
-	err := _SentinelsBridge.contract.Call(opts, &out, "recoverSigner", _ethSignedMessageHash, _signature)
+	err := _SentinelsBridge.contract.Call(opts, &out, "getSender")
 
 	if err != nil {
 		return *new(common.Address), err
@@ -259,76 +197,57 @@ func (_SentinelsBridge *SentinelsBridgeCaller) RecoverSigner(opts *bind.CallOpts
 
 }
 
-// RecoverSigner is a free data retrieval call binding the contract method 0x97aba7f9.
+// GetSender is a free data retrieval call binding the contract method 0x5e01eb5a.
 //
-// Solidity: function recoverSigner(bytes32 _ethSignedMessageHash, bytes _signature) pure returns(address)
-func (_SentinelsBridge *SentinelsBridgeSession) RecoverSigner(_ethSignedMessageHash [32]byte, _signature []byte) (common.Address, error) {
-	return _SentinelsBridge.Contract.RecoverSigner(&_SentinelsBridge.CallOpts, _ethSignedMessageHash, _signature)
+// Solidity: function getSender() view returns(address)
+func (_SentinelsBridge *SentinelsBridgeSession) GetSender() (common.Address, error) {
+	return _SentinelsBridge.Contract.GetSender(&_SentinelsBridge.CallOpts)
 }
 
-// RecoverSigner is a free data retrieval call binding the contract method 0x97aba7f9.
+// GetSender is a free data retrieval call binding the contract method 0x5e01eb5a.
 //
-// Solidity: function recoverSigner(bytes32 _ethSignedMessageHash, bytes _signature) pure returns(address)
-func (_SentinelsBridge *SentinelsBridgeCallerSession) RecoverSigner(_ethSignedMessageHash [32]byte, _signature []byte) (common.Address, error) {
-	return _SentinelsBridge.Contract.RecoverSigner(&_SentinelsBridge.CallOpts, _ethSignedMessageHash, _signature)
+// Solidity: function getSender() view returns(address)
+func (_SentinelsBridge *SentinelsBridgeCallerSession) GetSender() (common.Address, error) {
+	return _SentinelsBridge.Contract.GetSender(&_SentinelsBridge.CallOpts)
 }
 
-// SplitSignature is a free data retrieval call binding the contract method 0xa7bb5803.
+// Recover is a free data retrieval call binding the contract method 0x7cebfb64.
 //
-// Solidity: function splitSignature(bytes sig) pure returns(bytes32 r, bytes32 s, uint8 v)
-func (_SentinelsBridge *SentinelsBridgeCaller) SplitSignature(opts *bind.CallOpts, sig []byte) (struct {
-	R [32]byte
-	S [32]byte
-	V uint8
-}, error) {
+// Solidity: function recover(string message, bytes sig) pure returns(address)
+func (_SentinelsBridge *SentinelsBridgeCaller) Recover(opts *bind.CallOpts, message string, sig []byte) (common.Address, error) {
 	var out []interface{}
-	err := _SentinelsBridge.contract.Call(opts, &out, "splitSignature", sig)
+	err := _SentinelsBridge.contract.Call(opts, &out, "recover", message, sig)
 
-	outstruct := new(struct {
-		R [32]byte
-		S [32]byte
-		V uint8
-	})
 	if err != nil {
-		return *outstruct, err
+		return *new(common.Address), err
 	}
 
-	outstruct.R = *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
-	outstruct.S = *abi.ConvertType(out[1], new([32]byte)).(*[32]byte)
-	outstruct.V = *abi.ConvertType(out[2], new(uint8)).(*uint8)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
-	return *outstruct, err
+	return out0, err
 
 }
 
-// SplitSignature is a free data retrieval call binding the contract method 0xa7bb5803.
+// Recover is a free data retrieval call binding the contract method 0x7cebfb64.
 //
-// Solidity: function splitSignature(bytes sig) pure returns(bytes32 r, bytes32 s, uint8 v)
-func (_SentinelsBridge *SentinelsBridgeSession) SplitSignature(sig []byte) (struct {
-	R [32]byte
-	S [32]byte
-	V uint8
-}, error) {
-	return _SentinelsBridge.Contract.SplitSignature(&_SentinelsBridge.CallOpts, sig)
+// Solidity: function recover(string message, bytes sig) pure returns(address)
+func (_SentinelsBridge *SentinelsBridgeSession) Recover(message string, sig []byte) (common.Address, error) {
+	return _SentinelsBridge.Contract.Recover(&_SentinelsBridge.CallOpts, message, sig)
 }
 
-// SplitSignature is a free data retrieval call binding the contract method 0xa7bb5803.
+// Recover is a free data retrieval call binding the contract method 0x7cebfb64.
 //
-// Solidity: function splitSignature(bytes sig) pure returns(bytes32 r, bytes32 s, uint8 v)
-func (_SentinelsBridge *SentinelsBridgeCallerSession) SplitSignature(sig []byte) (struct {
-	R [32]byte
-	S [32]byte
-	V uint8
-}, error) {
-	return _SentinelsBridge.Contract.SplitSignature(&_SentinelsBridge.CallOpts, sig)
+// Solidity: function recover(string message, bytes sig) pure returns(address)
+func (_SentinelsBridge *SentinelsBridgeCallerSession) Recover(message string, sig []byte) (common.Address, error) {
+	return _SentinelsBridge.Contract.Recover(&_SentinelsBridge.CallOpts, message, sig)
 }
 
-// Verify is a free data retrieval call binding the contract method 0x2dd34f0f.
+// Verify is a free data retrieval call binding the contract method 0x3d9ffad5.
 //
-// Solidity: function verify(address _signer, string _message, bytes signature) pure returns(bool)
-func (_SentinelsBridge *SentinelsBridgeCaller) Verify(opts *bind.CallOpts, _signer common.Address, _message string, signature []byte) (bool, error) {
+// Solidity: function verify(string message, bytes sig) view returns(bool)
+func (_SentinelsBridge *SentinelsBridgeCaller) Verify(opts *bind.CallOpts, message string, sig []byte) (bool, error) {
 	var out []interface{}
-	err := _SentinelsBridge.contract.Call(opts, &out, "verify", _signer, _message, signature)
+	err := _SentinelsBridge.contract.Call(opts, &out, "verify", message, sig)
 
 	if err != nil {
 		return *new(bool), err
@@ -340,91 +259,49 @@ func (_SentinelsBridge *SentinelsBridgeCaller) Verify(opts *bind.CallOpts, _sign
 
 }
 
-// Verify is a free data retrieval call binding the contract method 0x2dd34f0f.
+// Verify is a free data retrieval call binding the contract method 0x3d9ffad5.
 //
-// Solidity: function verify(address _signer, string _message, bytes signature) pure returns(bool)
-func (_SentinelsBridge *SentinelsBridgeSession) Verify(_signer common.Address, _message string, signature []byte) (bool, error) {
-	return _SentinelsBridge.Contract.Verify(&_SentinelsBridge.CallOpts, _signer, _message, signature)
+// Solidity: function verify(string message, bytes sig) view returns(bool)
+func (_SentinelsBridge *SentinelsBridgeSession) Verify(message string, sig []byte) (bool, error) {
+	return _SentinelsBridge.Contract.Verify(&_SentinelsBridge.CallOpts, message, sig)
 }
 
-// Verify is a free data retrieval call binding the contract method 0x2dd34f0f.
+// Verify is a free data retrieval call binding the contract method 0x3d9ffad5.
 //
-// Solidity: function verify(address _signer, string _message, bytes signature) pure returns(bool)
-func (_SentinelsBridge *SentinelsBridgeCallerSession) Verify(_signer common.Address, _message string, signature []byte) (bool, error) {
-	return _SentinelsBridge.Contract.Verify(&_SentinelsBridge.CallOpts, _signer, _message, signature)
+// Solidity: function verify(string message, bytes sig) view returns(bool)
+func (_SentinelsBridge *SentinelsBridgeCallerSession) Verify(message string, sig []byte) (bool, error) {
+	return _SentinelsBridge.Contract.Verify(&_SentinelsBridge.CallOpts, message, sig)
 }
 
-// VerifySignature is a free data retrieval call binding the contract method 0x23e470ac.
+// VerifySignature is a free data retrieval call binding the contract method 0xdaca6f78.
 //
-// Solidity: function verifySignature(string message, bytes32 r, bytes32 s, uint8 v) view returns(bool)
-func (_SentinelsBridge *SentinelsBridgeCaller) VerifySignature(opts *bind.CallOpts, message string, r [32]byte, s [32]byte, v uint8) (bool, error) {
+// Solidity: function verifySignature(bytes32 messageHash, bytes signature) pure returns(address)
+func (_SentinelsBridge *SentinelsBridgeCaller) VerifySignature(opts *bind.CallOpts, messageHash [32]byte, signature []byte) (common.Address, error) {
 	var out []interface{}
-	err := _SentinelsBridge.contract.Call(opts, &out, "verifySignature", message, r, s, v)
+	err := _SentinelsBridge.contract.Call(opts, &out, "verifySignature", messageHash, signature)
 
 	if err != nil {
-		return *new(bool), err
+		return *new(common.Address), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 
 	return out0, err
 
 }
 
-// VerifySignature is a free data retrieval call binding the contract method 0x23e470ac.
+// VerifySignature is a free data retrieval call binding the contract method 0xdaca6f78.
 //
-// Solidity: function verifySignature(string message, bytes32 r, bytes32 s, uint8 v) view returns(bool)
-func (_SentinelsBridge *SentinelsBridgeSession) VerifySignature(message string, r [32]byte, s [32]byte, v uint8) (bool, error) {
-	return _SentinelsBridge.Contract.VerifySignature(&_SentinelsBridge.CallOpts, message, r, s, v)
+// Solidity: function verifySignature(bytes32 messageHash, bytes signature) pure returns(address)
+func (_SentinelsBridge *SentinelsBridgeSession) VerifySignature(messageHash [32]byte, signature []byte) (common.Address, error) {
+	return _SentinelsBridge.Contract.VerifySignature(&_SentinelsBridge.CallOpts, messageHash, signature)
 }
 
-// VerifySignature is a free data retrieval call binding the contract method 0x23e470ac.
+// VerifySignature is a free data retrieval call binding the contract method 0xdaca6f78.
 //
-// Solidity: function verifySignature(string message, bytes32 r, bytes32 s, uint8 v) view returns(bool)
-func (_SentinelsBridge *SentinelsBridgeCallerSession) VerifySignature(message string, r [32]byte, s [32]byte, v uint8) (bool, error) {
-	return _SentinelsBridge.Contract.VerifySignature(&_SentinelsBridge.CallOpts, message, r, s, v)
-}
-
-// AwaitSyncData is a paid mutator transaction binding the contract method 0xdb13d37f.
-//
-// Solidity: function awaitSyncData(bytes signature, uint256 tokenId, string url) returns()
-func (_SentinelsBridge *SentinelsBridgeTransactor) AwaitSyncData(opts *bind.TransactOpts, signature []byte, tokenId *big.Int, url string) (*types.Transaction, error) {
-	return _SentinelsBridge.contract.Transact(opts, "awaitSyncData", signature, tokenId, url)
-}
-
-// AwaitSyncData is a paid mutator transaction binding the contract method 0xdb13d37f.
-//
-// Solidity: function awaitSyncData(bytes signature, uint256 tokenId, string url) returns()
-func (_SentinelsBridge *SentinelsBridgeSession) AwaitSyncData(signature []byte, tokenId *big.Int, url string) (*types.Transaction, error) {
-	return _SentinelsBridge.Contract.AwaitSyncData(&_SentinelsBridge.TransactOpts, signature, tokenId, url)
-}
-
-// AwaitSyncData is a paid mutator transaction binding the contract method 0xdb13d37f.
-//
-// Solidity: function awaitSyncData(bytes signature, uint256 tokenId, string url) returns()
-func (_SentinelsBridge *SentinelsBridgeTransactorSession) AwaitSyncData(signature []byte, tokenId *big.Int, url string) (*types.Transaction, error) {
-	return _SentinelsBridge.Contract.AwaitSyncData(&_SentinelsBridge.TransactOpts, signature, tokenId, url)
-}
-
-// AwaitWithdrawEvent is a paid mutator transaction binding the contract method 0xf487da4c.
-//
-// Solidity: function awaitWithdrawEvent(uint256 tokenId) returns()
-func (_SentinelsBridge *SentinelsBridgeTransactor) AwaitWithdrawEvent(opts *bind.TransactOpts, tokenId *big.Int) (*types.Transaction, error) {
-	return _SentinelsBridge.contract.Transact(opts, "awaitWithdrawEvent", tokenId)
-}
-
-// AwaitWithdrawEvent is a paid mutator transaction binding the contract method 0xf487da4c.
-//
-// Solidity: function awaitWithdrawEvent(uint256 tokenId) returns()
-func (_SentinelsBridge *SentinelsBridgeSession) AwaitWithdrawEvent(tokenId *big.Int) (*types.Transaction, error) {
-	return _SentinelsBridge.Contract.AwaitWithdrawEvent(&_SentinelsBridge.TransactOpts, tokenId)
-}
-
-// AwaitWithdrawEvent is a paid mutator transaction binding the contract method 0xf487da4c.
-//
-// Solidity: function awaitWithdrawEvent(uint256 tokenId) returns()
-func (_SentinelsBridge *SentinelsBridgeTransactorSession) AwaitWithdrawEvent(tokenId *big.Int) (*types.Transaction, error) {
-	return _SentinelsBridge.Contract.AwaitWithdrawEvent(&_SentinelsBridge.TransactOpts, tokenId)
+// Solidity: function verifySignature(bytes32 messageHash, bytes signature) pure returns(address)
+func (_SentinelsBridge *SentinelsBridgeCallerSession) VerifySignature(messageHash [32]byte, signature []byte) (common.Address, error) {
+	return _SentinelsBridge.Contract.VerifySignature(&_SentinelsBridge.CallOpts, messageHash, signature)
 }
 
 // Deposit is a paid mutator transaction binding the contract method 0xb6b55f25.
@@ -448,25 +325,25 @@ func (_SentinelsBridge *SentinelsBridgeTransactorSession) Deposit(tokenId *big.I
 	return _SentinelsBridge.Contract.Deposit(&_SentinelsBridge.TransactOpts, tokenId)
 }
 
-// Withdraw is a paid mutator transaction binding the contract method 0x2e1a7d4d.
+// Withdraw is a paid mutator transaction binding the contract method 0xdc048cf2.
 //
-// Solidity: function withdraw(uint256 tokenID) returns()
-func (_SentinelsBridge *SentinelsBridgeTransactor) Withdraw(opts *bind.TransactOpts, tokenID *big.Int) (*types.Transaction, error) {
-	return _SentinelsBridge.contract.Transact(opts, "withdraw", tokenID)
+// Solidity: function withdraw(uint256 tokenID, string url) returns()
+func (_SentinelsBridge *SentinelsBridgeTransactor) Withdraw(opts *bind.TransactOpts, tokenID *big.Int, url string) (*types.Transaction, error) {
+	return _SentinelsBridge.contract.Transact(opts, "withdraw", tokenID, url)
 }
 
-// Withdraw is a paid mutator transaction binding the contract method 0x2e1a7d4d.
+// Withdraw is a paid mutator transaction binding the contract method 0xdc048cf2.
 //
-// Solidity: function withdraw(uint256 tokenID) returns()
-func (_SentinelsBridge *SentinelsBridgeSession) Withdraw(tokenID *big.Int) (*types.Transaction, error) {
-	return _SentinelsBridge.Contract.Withdraw(&_SentinelsBridge.TransactOpts, tokenID)
+// Solidity: function withdraw(uint256 tokenID, string url) returns()
+func (_SentinelsBridge *SentinelsBridgeSession) Withdraw(tokenID *big.Int, url string) (*types.Transaction, error) {
+	return _SentinelsBridge.Contract.Withdraw(&_SentinelsBridge.TransactOpts, tokenID, url)
 }
 
-// Withdraw is a paid mutator transaction binding the contract method 0x2e1a7d4d.
+// Withdraw is a paid mutator transaction binding the contract method 0xdc048cf2.
 //
-// Solidity: function withdraw(uint256 tokenID) returns()
-func (_SentinelsBridge *SentinelsBridgeTransactorSession) Withdraw(tokenID *big.Int) (*types.Transaction, error) {
-	return _SentinelsBridge.Contract.Withdraw(&_SentinelsBridge.TransactOpts, tokenID)
+// Solidity: function withdraw(uint256 tokenID, string url) returns()
+func (_SentinelsBridge *SentinelsBridgeTransactorSession) Withdraw(tokenID *big.Int, url string) (*types.Transaction, error) {
+	return _SentinelsBridge.Contract.Withdraw(&_SentinelsBridge.TransactOpts, tokenID, url)
 }
 
 // SentinelsBridgeDepositorIterator is returned from FilterDepositor and is used to iterate over the raw logs and unpacked data for Depositor events raised by the SentinelsBridge contract.

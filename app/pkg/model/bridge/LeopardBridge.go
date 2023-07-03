@@ -31,7 +31,7 @@ var (
 
 // LeopardBridgeMetaData contains all meta data concerning the LeopardBridge contract.
 var LeopardBridgeMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"deposit\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"tokenURL\",\"type\":\"string\"}],\"name\":\"Depositor\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"withdrawer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"}],\"name\":\"Withdrawer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"url\",\"type\":\"string\"}],\"name\":\"awaitSyncData\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"awaitWithdrawEvent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_messageHash\",\"type\":\"bytes32\"}],\"name\":\"getEthSignedMessageHash\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_message\",\"type\":\"string\"}],\"name\":\"getMessageHash\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_ethSignedMessageHash\",\"type\":\"bytes32\"},{\"internalType\":\"bytes\",\"name\":\"_signature\",\"type\":\"bytes\"}],\"name\":\"recoverSigner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"sig\",\"type\":\"bytes\"}],\"name\":\"splitSignature\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_signer\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_message\",\"type\":\"string\"},{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"verify\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"addr\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"deposit\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"tokenURL\",\"type\":\"string\"}],\"name\":\"Depositor\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"withdrawer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"}],\"name\":\"Withdrawer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"message\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"name\":\"verifyString\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenID\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // LeopardBridgeABI is the input ABI used to generate the binding from.
@@ -180,74 +180,12 @@ func (_LeopardBridge *LeopardBridgeTransactorRaw) Transact(opts *bind.TransactOp
 	return _LeopardBridge.Contract.contract.Transact(opts, method, params...)
 }
 
-// GetEthSignedMessageHash is a free data retrieval call binding the contract method 0xfa540801.
+// VerifyString is a free data retrieval call binding the contract method 0xd2c3fbb7.
 //
-// Solidity: function getEthSignedMessageHash(bytes32 _messageHash) pure returns(bytes32)
-func (_LeopardBridge *LeopardBridgeCaller) GetEthSignedMessageHash(opts *bind.CallOpts, _messageHash [32]byte) ([32]byte, error) {
+// Solidity: function verifyString(string message, uint8 v, bytes32 r, bytes32 s) pure returns(address signer)
+func (_LeopardBridge *LeopardBridgeCaller) VerifyString(opts *bind.CallOpts, message string, v uint8, r [32]byte, s [32]byte) (common.Address, error) {
 	var out []interface{}
-	err := _LeopardBridge.contract.Call(opts, &out, "getEthSignedMessageHash", _messageHash)
-
-	if err != nil {
-		return *new([32]byte), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
-
-	return out0, err
-
-}
-
-// GetEthSignedMessageHash is a free data retrieval call binding the contract method 0xfa540801.
-//
-// Solidity: function getEthSignedMessageHash(bytes32 _messageHash) pure returns(bytes32)
-func (_LeopardBridge *LeopardBridgeSession) GetEthSignedMessageHash(_messageHash [32]byte) ([32]byte, error) {
-	return _LeopardBridge.Contract.GetEthSignedMessageHash(&_LeopardBridge.CallOpts, _messageHash)
-}
-
-// GetEthSignedMessageHash is a free data retrieval call binding the contract method 0xfa540801.
-//
-// Solidity: function getEthSignedMessageHash(bytes32 _messageHash) pure returns(bytes32)
-func (_LeopardBridge *LeopardBridgeCallerSession) GetEthSignedMessageHash(_messageHash [32]byte) ([32]byte, error) {
-	return _LeopardBridge.Contract.GetEthSignedMessageHash(&_LeopardBridge.CallOpts, _messageHash)
-}
-
-// GetMessageHash is a free data retrieval call binding the contract method 0xb446f3b2.
-//
-// Solidity: function getMessageHash(string _message) pure returns(bytes32)
-func (_LeopardBridge *LeopardBridgeCaller) GetMessageHash(opts *bind.CallOpts, _message string) ([32]byte, error) {
-	var out []interface{}
-	err := _LeopardBridge.contract.Call(opts, &out, "getMessageHash", _message)
-
-	if err != nil {
-		return *new([32]byte), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
-
-	return out0, err
-
-}
-
-// GetMessageHash is a free data retrieval call binding the contract method 0xb446f3b2.
-//
-// Solidity: function getMessageHash(string _message) pure returns(bytes32)
-func (_LeopardBridge *LeopardBridgeSession) GetMessageHash(_message string) ([32]byte, error) {
-	return _LeopardBridge.Contract.GetMessageHash(&_LeopardBridge.CallOpts, _message)
-}
-
-// GetMessageHash is a free data retrieval call binding the contract method 0xb446f3b2.
-//
-// Solidity: function getMessageHash(string _message) pure returns(bytes32)
-func (_LeopardBridge *LeopardBridgeCallerSession) GetMessageHash(_message string) ([32]byte, error) {
-	return _LeopardBridge.Contract.GetMessageHash(&_LeopardBridge.CallOpts, _message)
-}
-
-// RecoverSigner is a free data retrieval call binding the contract method 0x97aba7f9.
-//
-// Solidity: function recoverSigner(bytes32 _ethSignedMessageHash, bytes _signature) pure returns(address)
-func (_LeopardBridge *LeopardBridgeCaller) RecoverSigner(opts *bind.CallOpts, _ethSignedMessageHash [32]byte, _signature []byte) (common.Address, error) {
-	var out []interface{}
-	err := _LeopardBridge.contract.Call(opts, &out, "recoverSigner", _ethSignedMessageHash, _signature)
+	err := _LeopardBridge.contract.Call(opts, &out, "verifyString", message, v, r, s)
 
 	if err != nil {
 		return *new(common.Address), err
@@ -259,141 +197,18 @@ func (_LeopardBridge *LeopardBridgeCaller) RecoverSigner(opts *bind.CallOpts, _e
 
 }
 
-// RecoverSigner is a free data retrieval call binding the contract method 0x97aba7f9.
+// VerifyString is a free data retrieval call binding the contract method 0xd2c3fbb7.
 //
-// Solidity: function recoverSigner(bytes32 _ethSignedMessageHash, bytes _signature) pure returns(address)
-func (_LeopardBridge *LeopardBridgeSession) RecoverSigner(_ethSignedMessageHash [32]byte, _signature []byte) (common.Address, error) {
-	return _LeopardBridge.Contract.RecoverSigner(&_LeopardBridge.CallOpts, _ethSignedMessageHash, _signature)
+// Solidity: function verifyString(string message, uint8 v, bytes32 r, bytes32 s) pure returns(address signer)
+func (_LeopardBridge *LeopardBridgeSession) VerifyString(message string, v uint8, r [32]byte, s [32]byte) (common.Address, error) {
+	return _LeopardBridge.Contract.VerifyString(&_LeopardBridge.CallOpts, message, v, r, s)
 }
 
-// RecoverSigner is a free data retrieval call binding the contract method 0x97aba7f9.
+// VerifyString is a free data retrieval call binding the contract method 0xd2c3fbb7.
 //
-// Solidity: function recoverSigner(bytes32 _ethSignedMessageHash, bytes _signature) pure returns(address)
-func (_LeopardBridge *LeopardBridgeCallerSession) RecoverSigner(_ethSignedMessageHash [32]byte, _signature []byte) (common.Address, error) {
-	return _LeopardBridge.Contract.RecoverSigner(&_LeopardBridge.CallOpts, _ethSignedMessageHash, _signature)
-}
-
-// SplitSignature is a free data retrieval call binding the contract method 0xa7bb5803.
-//
-// Solidity: function splitSignature(bytes sig) pure returns(bytes32 r, bytes32 s, uint8 v)
-func (_LeopardBridge *LeopardBridgeCaller) SplitSignature(opts *bind.CallOpts, sig []byte) (struct {
-	R [32]byte
-	S [32]byte
-	V uint8
-}, error) {
-	var out []interface{}
-	err := _LeopardBridge.contract.Call(opts, &out, "splitSignature", sig)
-
-	outstruct := new(struct {
-		R [32]byte
-		S [32]byte
-		V uint8
-	})
-	if err != nil {
-		return *outstruct, err
-	}
-
-	outstruct.R = *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
-	outstruct.S = *abi.ConvertType(out[1], new([32]byte)).(*[32]byte)
-	outstruct.V = *abi.ConvertType(out[2], new(uint8)).(*uint8)
-
-	return *outstruct, err
-
-}
-
-// SplitSignature is a free data retrieval call binding the contract method 0xa7bb5803.
-//
-// Solidity: function splitSignature(bytes sig) pure returns(bytes32 r, bytes32 s, uint8 v)
-func (_LeopardBridge *LeopardBridgeSession) SplitSignature(sig []byte) (struct {
-	R [32]byte
-	S [32]byte
-	V uint8
-}, error) {
-	return _LeopardBridge.Contract.SplitSignature(&_LeopardBridge.CallOpts, sig)
-}
-
-// SplitSignature is a free data retrieval call binding the contract method 0xa7bb5803.
-//
-// Solidity: function splitSignature(bytes sig) pure returns(bytes32 r, bytes32 s, uint8 v)
-func (_LeopardBridge *LeopardBridgeCallerSession) SplitSignature(sig []byte) (struct {
-	R [32]byte
-	S [32]byte
-	V uint8
-}, error) {
-	return _LeopardBridge.Contract.SplitSignature(&_LeopardBridge.CallOpts, sig)
-}
-
-// Verify is a free data retrieval call binding the contract method 0x2dd34f0f.
-//
-// Solidity: function verify(address _signer, string _message, bytes signature) pure returns(bool)
-func (_LeopardBridge *LeopardBridgeCaller) Verify(opts *bind.CallOpts, _signer common.Address, _message string, signature []byte) (bool, error) {
-	var out []interface{}
-	err := _LeopardBridge.contract.Call(opts, &out, "verify", _signer, _message, signature)
-
-	if err != nil {
-		return *new(bool), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
-
-	return out0, err
-
-}
-
-// Verify is a free data retrieval call binding the contract method 0x2dd34f0f.
-//
-// Solidity: function verify(address _signer, string _message, bytes signature) pure returns(bool)
-func (_LeopardBridge *LeopardBridgeSession) Verify(_signer common.Address, _message string, signature []byte) (bool, error) {
-	return _LeopardBridge.Contract.Verify(&_LeopardBridge.CallOpts, _signer, _message, signature)
-}
-
-// Verify is a free data retrieval call binding the contract method 0x2dd34f0f.
-//
-// Solidity: function verify(address _signer, string _message, bytes signature) pure returns(bool)
-func (_LeopardBridge *LeopardBridgeCallerSession) Verify(_signer common.Address, _message string, signature []byte) (bool, error) {
-	return _LeopardBridge.Contract.Verify(&_LeopardBridge.CallOpts, _signer, _message, signature)
-}
-
-// AwaitSyncData is a paid mutator transaction binding the contract method 0xdb13d37f.
-//
-// Solidity: function awaitSyncData(bytes signature, uint256 tokenId, string url) returns()
-func (_LeopardBridge *LeopardBridgeTransactor) AwaitSyncData(opts *bind.TransactOpts, signature []byte, tokenId *big.Int, url string) (*types.Transaction, error) {
-	return _LeopardBridge.contract.Transact(opts, "awaitSyncData", signature, tokenId, url)
-}
-
-// AwaitSyncData is a paid mutator transaction binding the contract method 0xdb13d37f.
-//
-// Solidity: function awaitSyncData(bytes signature, uint256 tokenId, string url) returns()
-func (_LeopardBridge *LeopardBridgeSession) AwaitSyncData(signature []byte, tokenId *big.Int, url string) (*types.Transaction, error) {
-	return _LeopardBridge.Contract.AwaitSyncData(&_LeopardBridge.TransactOpts, signature, tokenId, url)
-}
-
-// AwaitSyncData is a paid mutator transaction binding the contract method 0xdb13d37f.
-//
-// Solidity: function awaitSyncData(bytes signature, uint256 tokenId, string url) returns()
-func (_LeopardBridge *LeopardBridgeTransactorSession) AwaitSyncData(signature []byte, tokenId *big.Int, url string) (*types.Transaction, error) {
-	return _LeopardBridge.Contract.AwaitSyncData(&_LeopardBridge.TransactOpts, signature, tokenId, url)
-}
-
-// AwaitWithdrawEvent is a paid mutator transaction binding the contract method 0xf487da4c.
-//
-// Solidity: function awaitWithdrawEvent(uint256 tokenId) returns()
-func (_LeopardBridge *LeopardBridgeTransactor) AwaitWithdrawEvent(opts *bind.TransactOpts, tokenId *big.Int) (*types.Transaction, error) {
-	return _LeopardBridge.contract.Transact(opts, "awaitWithdrawEvent", tokenId)
-}
-
-// AwaitWithdrawEvent is a paid mutator transaction binding the contract method 0xf487da4c.
-//
-// Solidity: function awaitWithdrawEvent(uint256 tokenId) returns()
-func (_LeopardBridge *LeopardBridgeSession) AwaitWithdrawEvent(tokenId *big.Int) (*types.Transaction, error) {
-	return _LeopardBridge.Contract.AwaitWithdrawEvent(&_LeopardBridge.TransactOpts, tokenId)
-}
-
-// AwaitWithdrawEvent is a paid mutator transaction binding the contract method 0xf487da4c.
-//
-// Solidity: function awaitWithdrawEvent(uint256 tokenId) returns()
-func (_LeopardBridge *LeopardBridgeTransactorSession) AwaitWithdrawEvent(tokenId *big.Int) (*types.Transaction, error) {
-	return _LeopardBridge.Contract.AwaitWithdrawEvent(&_LeopardBridge.TransactOpts, tokenId)
+// Solidity: function verifyString(string message, uint8 v, bytes32 r, bytes32 s) pure returns(address signer)
+func (_LeopardBridge *LeopardBridgeCallerSession) VerifyString(message string, v uint8, r [32]byte, s [32]byte) (common.Address, error) {
+	return _LeopardBridge.Contract.VerifyString(&_LeopardBridge.CallOpts, message, v, r, s)
 }
 
 // Deposit is a paid mutator transaction binding the contract method 0xb6b55f25.
