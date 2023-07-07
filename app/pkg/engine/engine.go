@@ -1,8 +1,9 @@
 package engine
 
 import (
-	"example.com/m/app/pkg/route"
 	"log"
+
+	"example.com/m/app/pkg/route"
 
 	"github.com/gofiber/fiber/v2/middleware/cors"
 
@@ -30,17 +31,19 @@ func (e *Engine) Run() {
 	}))
 	e.app.Use(logger.New())
 	////////////////////////
-	route.MintNFTsRoute(e.app)
-	route.DepositNFTsRoute(e.app)
-	route.ClaimNFTsRoute(e.app)
+	//route.MintNFTsRoute(e.app)
+	//route.DepositNFTsRoute(e.app)
+	//route.ClaimNFTsRoute(e.app)
+	route.LeopardRoute(e.app)
 	////////////////////////
-	go ListenClaimT54NFTs()
-	go ListenClaimT55NFTs()
-	go ListenT54Bridge()
-	go ListenT55Bridge()
-	go ListenT54MintNFTs()
-	go ListenT55MintNFTs()
-	err := e.app.Listen("0.0.0.0:8000")
+	//go ListenClaimT54NFTs()
+	//go ListenClaimT55NFTs()
+	//go ListenT54Bridge()
+	//go ListenT55Bridge()
+	//go ListenT54MintNFTs()
+	//go ListenT55MintNFTs()
+
+	err := e.app.Listen("localhost:8000")
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -8,15 +8,15 @@ const config = {
   networks: {
     sepolia: {
       url: `${process.env.URL_SEPOLIA}`,
-      accounts: process.env.PRIVATE_KEY_SEPOLIA?.split(',')
+      accounts: process.env.PRIVATE_KEY?.split(',')
     },
     ftm: {
       url: `${process.env.URL_FTM}`,
-      accounts: process.env.PRIVATE_KEY_FTM?.split(','),
+      accounts: process.env.PRIVATE_KEY?.split(','),
     },
     arb: {
       url: `${process.env.URL_ARB}`,
-      accounts: process.env.PRIVATE_KEY_ARB?.split(','),
+      accounts: process.env.PRIVATE_KEY?.split(','),
     }
   },
   abiExporter: {

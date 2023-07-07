@@ -6,6 +6,7 @@ import './security/Verifier.sol';
 
 contract LeopardBridge is Verifier {
     using ECDSA for bytes32;
+    using ECDSA for bytes;
     LEO private leopard;
     constructor(address addr) {
         leopard = LEO(addr);
@@ -20,6 +21,10 @@ contract LeopardBridge is Verifier {
 
     event Depositor(address deposit, uint256 tokenID, string tokenURL);
     event Withdrawer(address withdrawer, uint256 tokenID);
+
+    function SignVerify(string memory message, bytes memory signature) public view returns (bool) {
+        return bytes(message).toEthSignedMessageHash().recover(signature) == msg.sender;
+    }
 
     function verify(bytes memory signature, address owner, uint256 tokenId) private pure returns(bool) {
         bytes32 message = keccak256(abi.encodePacked(owner, tokenId));

@@ -12,6 +12,7 @@ import (
 	"example.com/m/app/pkg/model/bridge"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 )
@@ -20,7 +21,7 @@ import (
 // sen nft deployed:  0x1ee14deD878B2d98001132F8B72e99A82dEf749C
 
 var (
-	BridgeAddr = "0x52D9c9973CC07566126e20E4f679E67b1a333150"
+	BridgeAddr = "0x9C3e5Eeaaa024F901760F2866601ACcD214c01f7"
 	NFTs       = "0xB23B14f3eF282d33C2F5f3a8E9334385D99acCa9"
 )
 
@@ -33,17 +34,20 @@ func PersonalSign(message string, privateKey *ecdsa.PrivateKey) []byte {
 	// if err != nil {
 	// 	return "", err
 	// }
-	// signatureBytes[64] += 27
-	// return hexutil.Encode(signatureBytes), nil
+	signatureBytes[64] += 27
+	// return hexutil.Encode(signatureBytes)
 	return signatureBytes
 }
 
 func TestSignature(t *testing.T) {
 	config.Config()
 	pvkey, _ := crypto.GenerateKey()
-	privateKey, _ := crypto.HexToECDSA(os.Getenv("PRIVATE_KEY"))
 	pubkey := common.HexToAddress("0x8f9d9aA7B313cf9360d4E61D1Ae809443f97aCad")
+	privateKey, _ := crypto.HexToECDSA(os.Getenv("PRIVATE_KEY"))
 
+	// SIGNATURE:
+	// 0x6aacbe0fb92d51a5dfc1399aa7b992175faca163d739a0b1cde48c5f5796c4313bf46f8188b50d9b1f338cf68fe1f2f57f547353706b99b369b9db420513250c1b
+	// 0x6aacbe0fb92d51a5dfc1399aa7b992175faca163d739a0b1cde48c5f5796c4313bf46f8188b50d9b1f338cf68fe1f2f57f547353706b99b369b9db420513250c1b
 	// message := []byte("www.example.com")
 	// hash := crypto.Keccak256Hash(message)
 
@@ -66,18 +70,10 @@ func TestSignature(t *testing.T) {
 	if errAuth != nil {
 		t.Error(errAuth)
 	}
-	verify, err := senbridge.Verify(nil, "www.example.com", signature)
-	if err != nil {
-		t.Error(err)
-	}
-
-	address, _ := senbridge.Recover(nil, "www.example.com", signature)
-	sender, _ := senbridge.GetSender(&bind.CallOpts{From: pubkey})
-	// hexData := hexutil.Encode(data)
-
-	fmt.Println("Public key from private key: ", privateKey)
-	fmt.Println("address: ", address.Hex())
-	fmt.Println("sender: ", sender.Hex())
+	signString := hexutil.Encode(signature)
+	//fmt.Println(signString)
+	signbytes, _ := hexutil.Decode(signString)
+	verify, _ := senbridge.SignVerify(&bind.CallOpts{From: pubkey}, "www.example.com", signbytes)
 	fmt.Println("Verify", verify)
 
 }

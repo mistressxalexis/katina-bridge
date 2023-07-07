@@ -2,6 +2,7 @@ package core
 
 import (
 	"crypto/ecdsa"
+	"example.com/m/app/config"
 	"log"
 	"math/big"
 	"os"
@@ -117,6 +118,18 @@ func (c *Core) T55NewKeyedTransactor() *bind.TransactOpts {
 	auth, errAuth := bind.NewKeyedTransactorWithChainID(key, big.NewInt(SepoliaChainID))
 	if errAuth != nil {
 		log.Fatal(errAuth)
+	}
+	return auth
+}
+
+func NewTransactOpts(config *config.TransactOptsConfig) *bind.TransactOpts {
+	key, err := crypto.HexToECDSA(config.PrivateKey)
+	if err != nil {
+		log.Fatal(err)
+	}
+	auth, err := bind.NewKeyedTransactorWithChainID(key, big.NewInt(config.ChainID))
+	if err != nil {
+		log.Fatal(err)
 	}
 	return auth
 }
